@@ -5,6 +5,27 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const form = document.getElementById('form');
+
+async function checkAndRedirect(e){
+    e.preventDefault()
+
+    // if not validated need adding stop request logic
+    checkInputs()
+
+    const response = await fetch('http://localhost:3000/register', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({a: 1, b: 2})
+    })
+    console.log('response ', response)
+    if (response.status === 200){
+        window.location.href = "/home.html"
+    }
+}
 
 function checkInputs() {
     const usernameValue = username.value.trim();
@@ -71,3 +92,7 @@ function setSuccessFor(input) {
 function isEmail(email) {
     return /^(([^<>() \ [\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
+
+form.addEventListener('submit', function(e){
+    checkAndRedirect(e)
+});
