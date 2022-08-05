@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login panel</title>
+    <link rel="stylesheet" href="user-login.css">
+</head>
+<body>
+    <div id="main">
+        <h1>Who wants to be a millionaire</h1>
+        <hr>
+        <h2>Login to continue</h2>
+         <form action ="/users" method="post">
+            <div class="field1">
+                <input type="text" id="username" required name="username">
+                <label id="lab1"> Your email </label>
+            </div>
+            <div class="field2">
+                <input type="password" id="password" required name="password">
+                <label id="lab2"> Your password</label>
+            </div>
+            <div id = "btn">
+            <div id="inner"></div>
+            <button type="submit">LOGIN</button>
+            </div>
+            <p class="message">Not registered? <a href="../registration/registration.html">Create an account</a></p>
+        </form>
+    </div>
+</body>
+</html>
